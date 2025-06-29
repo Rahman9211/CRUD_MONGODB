@@ -1,0 +1,24 @@
+
+<div class="container">
+  <h1 class="mt-4">Add Employee</h1>
+  <form action="/emp/save-emp" method="post">
+    <div>
+      <label class="col-form-label mt-4">Enter Your name</label>
+      <input class="form-control" type="text" placeholder="Enter Your Name" name="fullname" required />
+    </div>
+    <div>
+      <label class="col-form-label mt-4">Enter Your email</label>
+      <input class="form-control" type="email" placeholder="Enter Your Email" name="email" required />
+    </div>
+    <div>
+      <label class="col-form-label mt-4">Enter Your Phone</label>
+      <input class="form-control" type="number" placeholder="Enter Your Phone" name="mobile" required />
+    </div>
+    <div>
+      <label class="col-form-label mt-4">Enter Your City</label>
+      <input class="form-control" type="text" placeholder="Enter Your City" name="city" required />
+    </div>
+    <button class="btn btn-primary mt-5" type="submit">Submit</button>
+  </form>
+  <a href="/"><button class="btn btn-success mt-3">Back to home</button></a>
+</div>
