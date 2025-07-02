@@ -32,12 +32,33 @@ router.post('/save-emp', async (req, res) => {
 router.get("/show-all-emp", async (req, res) => {
     try {
         const result = await Employee.find();
-        console.log(result);
+        // console.log(result);
         res.render("showEmp", { list: result }); // passes data to view
     } catch (error) {
         console.log(error);
     }
 });
+
+// delete 
+
+router.get("/delete-emp",async (req,res)=>{
+    try{
+        const result = await Employee.find()
+        res.render("deleteEmp", {list : result})
+    } catch (error) {
+        console.log(error);
+    }
+})
+router.get("/final-delete/:uid",async (req, res)=>{
+    try {
+        const result = await Employee.findByIdAndDelete(req.params.uid)
+        console.log(result);
+
+        // res.redirect("/emp/delete-emp")
+    } catch (error) {
+        console.log(error);
+    }
+})
 
 
 module.exports = router;
