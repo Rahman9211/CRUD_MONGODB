@@ -59,6 +59,22 @@ router.get("/final-delete/:uid",async (req, res)=>{
         console.log(error);
     }
 })
+//  update 
+
+
+
+router.get("/final-update/:uid", async (req, res) => {
+    try {
+        const empData = await Employee.findById(req.params.uid);
+        res.render("updateEmp", { emp: empData });
+    } catch (error) {
+        console.log("Error fetching employee for update:", error);
+        res.status(500).send("Error loading update form");
+    }
+});
+// router.get("/final-update/:uid",async (req,res)=>{
+// })
+
 
 
 module.exports = router;
