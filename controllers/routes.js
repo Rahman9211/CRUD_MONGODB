@@ -61,19 +61,30 @@ router.get("/final-delete/:uid",async (req, res)=>{
 })
 //  update 
 
-
-
-router.get("/final-update/:uid", async (req, res) => {
-    try {
-        const empData = await Employee.findById(req.params.uid);
-        res.render("updateEmp", { emp: empData });
-    } catch (error) {
-        console.log("Error fetching employee for update:", error);
-        res.status(500).send("Error loading update form");
+router.get("/update-Emp",async (req,res)=>{
+    let emp = await Employee.find();
+    // let empdata = emp.map(empdata => empdata.toObject())
+    res.render("updateEmp" , {emp});
+})
+router.get("/editEmployee/:id",async(req,res)=>{
+    try{
+        let employees = await Employee.findById(req.params.id);
+        res.render("editEmp",{Emp})
+    }catch(err){
+        console.log(err);
     }
-});
-// router.get("/final-update/:uid",async (req,res)=>{
-// })
+})
+
+
+
+// router.get('/update-Emp', async (req, res) => {
+//   try {
+//     const result = await Employee.find();
+//     res.render('updateEmp', { list: result });
+//   } catch (e) {
+//     console.log(e);
+//   }
+// });
 
 
 
