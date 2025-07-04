@@ -1,4 +1,3 @@
-
 const express = require("express");
 const router = express.Router();
 const Employee = require('../models/connection.model');
@@ -61,168 +60,44 @@ router.get("/final-delete/:uid",async (req, res)=>{
 })
 //  update 
 
-router.get("/update-Emp",async (req,res)=>{
-    let emp = await Employee.find();
-    // let empdata = emp.map(empdata => empdata.toObject())
-    res.render("updateEmp" , {emp});
-})
-router.get("/editEmployee/:id",async(req,res)=>{
-    try{
-        let employees = await Employee.findById(req.params.id);
-        res.render("editEmp",{Emp})
-    }catch(err){
-        console.log(err);
-    }
+router.get('/update-Emp', async (req, res) => {
+  try{
+    const result = await Employee.find()
+    res.render('updateEmp', {list: student});
+  }catch(e){
+    console.log(e);
+  }
 })
 
+router.get('/update-Emp/:id', async (req, res) => {
+  try{
+        const result = await Employee.find()
+    res.render('editEmp', { student});
+  }catch(e){
+    console.log(e);
+  }
+})
+router.post('/update-Emp/:id', async (req, res) => {
+  try{
+    await result.findByIdAndUpdate(req.params.id,req.body);
+    res.redirect('/emp/update-Emp');
+  }catch(e){
+    console.log(e);
+  }
+});
 
 
-// router.get('/update-Emp', async (req, res) => {
-//   try {
-//     const result = await Employee.find();
-//     res.render('updateEmp', { list: result });
-//   } catch (e) {
-//     console.log(e);
-//   }
-// });
-
-
+// router.get("/update-Emp",async (req,res)=>{
+//     let emp = await Employee.find();
+//     res.render("updateEmp" , {emp});
+// })
+// router.get("/editEmployee/:id",async(req,res)=>{
+//     try{
+//         let employees = await Employee.findById(req.params.id);
+//         res.render("editEmp",{Emp})
+//     }catch(err){
+//         console.log(err);
+//     }
+// })
 
 module.exports = router;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// const express = require("express");
-// const router = express.Router();
-// const Student = require("../models/connection.model");
-// router.get("/add-student", async (req, res) => {
-//   res.render("addStudent");
-// });
-// router.post("/save-student", async (req, res) => {
-//   try {
-//     const student = new Student({
-//       fullname: req.body.fullname,
-//       email: req.body.email,
-//       phone: req.body.mobile,
-//       city: req.body.city,
-//     });
-//     await student.save();
-//     res.redirect("/");
-//   } catch (e) {
-//     console.log(e);
-//   }
-// });
-
-// //Show all students
-// router.get("/show-all-students", async (req, res) => {
-//   try {
-//     const student = await Student.find();
-//     // console.log(student);
-
-//     res.render("showAllStudents", { list: student });
-//   } catch (e) {
-//     console.log(e);
-//   }
-// });
-
-// //delete student
-
-// router.get('/delete-student', async (req, res) => {
-//   try {
-//     const student= await Student.find();
-//     res.render('deleteStudent', {list:student});
-//   } catch (error) {
-//     console.log(error);
-    
-//   }
-// })
-
-// router.get('/final-delete-student/:id', async (req, res) => {
-//   try {
-//    const student = await Student.findByIdAndDelete(req.params.id);
-//    console.log(student);
-    
-//    res.redirect('/stu/delete-student');
-//   } catch (error) {
-//     console.log(error);
-//   }
-// })
-
-// //Update Student
-// router.get('/update-student', async (req, res) => {
-//   try{
-//     const student = await Student.find();
-//     res.render('updateStudent', {list: student});
-//   }catch(e){
-//     console.log(e);
-//   }
-// })
-
-// router.get('/edit-student/:id', async (req, res) => {
-//   try{
-//     const student = await Student.findById(req.params.id);
-//     res.render('editStudent', { student});
-//   }catch(e){
-//     console.log(e);
-//   }
-// })
-// router.post('/update-student/:id', async (req, res) => {
-//   try{
-//     await Student.findByIdAndUpdate(req.params.id,req.body);
-//     res.redirect('/stu/update-student');
-//   }catch(e){
-//     console.log(e);
-//   }
-// });
-
-
-// module.exports = router;

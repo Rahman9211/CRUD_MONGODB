@@ -4,18 +4,12 @@
     <thead>
       <tr class="table-primary">
         <th scope="col">Name</th>
-        {{!-- <th scope="col">Email</th>
-        <th scope="col">Phone</th>
-        <th scope="col">City</th> --}}
       </tr>
     </thead>
     <tbody>
       {{#each list}}
         <tr class="table-active">
           <td aria-required="true">{{this.fullname}}</td>
-          {{!-- <td>{{this.email}}</td>
-          <td>{{this.phone}}</td>
-          <td>{{this.city}}</td> --}}
           <td scope="row"><a href="/emp/editEmployee/{{this.id}}">edit</a></td>
         </tr>
       {{/each}}
@@ -23,3 +17,36 @@
   </table>
   <a href="/"><button class="btn btn-primary">Back to home</button></a>
 </div>
+
+
+
+{{!-- <h1 class="text-center text-success">Update Student's Data</h1>
+
+  <table class="table table-hover  ">
+    <thead>
+      <tr class="table-primary">
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">City</th>
+        <th scope="col">Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each emp}}
+        <tr class="table-active">
+          <td aria-required="true" scope="row">{{this.fullname}}</td>
+          <td scope="row">{{this.email}}</td>
+          <td scope="row">{{this.phone}}</td>
+          <td scope="row">{{this.city}}</td>
+          <td scope="row">
+            <a href="/stu/edit-student/{{this._id}}"><button class="btn btn-info">Edit</button></a></td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  <a href="/">  <button class="btn btn-primary border">Go to Home</button></a>
+ --}}
+
+
+
