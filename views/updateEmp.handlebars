@@ -1,23 +1,31 @@
 <div class="d-flex justify-content-center m-2 h1 text-dark">All Employees Data</div>
 <div class="container table-responsive-xl py-5">
-  <table class="table table-hover ">
+  <table class="table table-hover">
     <thead>
       <tr class="table-primary">
         <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">City</th>
+        <th scope="col">Edit</th>
       </tr>
     </thead>
     <tbody>
       {{#each list}}
         <tr class="table-active">
-          <td aria-required="true">{{this.fullname}}</td>
-          <td scope="row"><a href="/emp/editEmployee/{{this.id}}">edit</a></td>
+          <td scope="row">{{this.fullname}}</td>
+          <td scope="row">{{this.email}}</td>
+          <td scope="row">{{this.phone}}</td>
+          <td scope="row">{{this.city}}</td>
+          <td scope="row">
+            <a href="/emp/editEmp/{{this._id}}"><button class="btn btn-info">Edit</button></a>
+          </td>
         </tr>
       {{/each}}
     </tbody>
   </table>
   <a href="/"><button class="btn btn-primary">Back to home</button></a>
 </div>
-
 
 
 {{!-- <h1 class="text-center text-success">Update Student's Data</h1>

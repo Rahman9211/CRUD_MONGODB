@@ -60,32 +60,33 @@ router.get("/final-delete/:uid",async (req, res)=>{
 })
 //  update 
 
-router.get('/update-Emp', async (req, res) => {
-  try{
-    const result = await Employee.find()
-    res.render('updateEmp', {list: student});
-  }catch(e){
-    console.log(e);
+router.get("/updateEmp", async (req, res)=>{
+  try {
+    let result = await Employee.find()
+    res.render("updateEmp", {list:result})
+  } catch (error) {
+    console.log(error)
   }
 })
 
-router.get('/update-Emp/:id', async (req, res) => {
-  try{
-        const result = await Employee.find()
-    res.render('editEmp', { student});
-  }catch(e){
-    console.log(e);
+router.get("/editEmp/:id", async (req, res)=>{
+  try {
+    let result = await Employee.findById(req.params.id);
+    console.log(result)
+    res.render("editEmp", {result})
+  } catch (error) {
+    console.log(error)
   }
 })
-router.post('/update-Emp/:id', async (req, res) => {
-  try{
-    await result.findByIdAndUpdate(req.params.id,req.body);
-    res.redirect('/emp/update-Emp');
-  }catch(e){
-    console.log(e);
-  }
-});
 
+router.post("/updatedEmp/:id", async (req, res)=>{
+  try {
+    await Employee.findByIdAndUpdate(req.params.id, req.body);
+    res.redirect("/emp/updateEmp");
+  } catch (error) {
+    console.log(error)
+  }
+})
 
 // router.get("/update-Emp",async (req,res)=>{
 //     let emp = await Employee.find();
